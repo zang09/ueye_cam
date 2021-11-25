@@ -29,8 +29,11 @@ find_package(catkin REQUIRED COMPONENTS
   )
 catkin_destinations() # define ${CATKIN_PACKAGE_SHARE_DESTINATION}
 
-#set(UEYE_LIBRARY_PATH /usr/lib)
+## add ueye
+include_directories(/opt/ids/ueye/include)
+link_directories(/opt/ids/ueye/lib) 
 find_library(UEYE_LIBRARY ueye_api)
+
 set(USE_UNOFFICIAL_UEYE_DRIVERS FALSE)
 if(NOT UEYE_LIBRARY)
   message(STATUS "libueye_api was not found in system's library path")
